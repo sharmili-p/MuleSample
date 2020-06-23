@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="input" format="xml">
+      <types:example format="xml" element="Employee" location="examples/git_samp.xml"/>
+    </types:type>
+    <types:type name="output" format="json">
+      <types:shape format="weave" example="examples/git_out.json"><![CDATA[%dw 2.0
+
+type output = {|
+  Employee: {|
+    Name: String, 
+    EmpId: String
+  |}
+|} {"example": "{\\\"Employee\\\":{\\\"Name\\\":\\\"Sharmili.P\\\",\\\"EmpId\\\":\\\"1007496\\\"}}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+</types:mule>
